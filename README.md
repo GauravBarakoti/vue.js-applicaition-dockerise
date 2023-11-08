@@ -120,7 +120,7 @@ server {
     }
 }
 ```
-
+`try_files` tests for the existence of the file in the local file system and may rewrite the URL, if it does exist, it only remembers it - then continues processing the rest of the location block.
 This configuration ensures that routes are handled by Vue.js and prevents 404 errors.
 
 All of these details are already included in the Dockerfile.
