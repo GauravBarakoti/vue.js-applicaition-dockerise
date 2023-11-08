@@ -4,6 +4,13 @@ SPA, some applications require rich interactivity, deep session depth, and non-t
 
 In short, a single-page application is an app that doesn’t need to reload the page during its use and works within a browser.
 
+![Alt text](image.png)
+
+In my case, I have a sample Single Page Application of Vue.js.
+
+Our goal here, is to Dockerise this application and push the Image to Amazon ECR and then deploy it using ECS Fargate.
+
+
 
 
 
