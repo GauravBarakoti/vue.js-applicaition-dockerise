@@ -11,7 +11,7 @@ I have a sample Single-Page Application built with Vue.js.
 
 Our goal here is to Dockerize this application, push the image to Amazon Elastic Container Registry (ECR), and deploy it using Amazon Elastic Container Service (ECS) Fargate, attaching an Elastic Load Balancer (ELB) and Auto Scaling Group (ASG).
 
-I initially attempted to use a single-stage Dockerfile, but encountered a 404 error when launching a new container because the application wasn't running in the container. This issue led me to employ a multi-stage Dockerfile, which worked perfectly. Here is the Dockerfile:
+I initially attempted to use a single-stage Dockerfile but encountered a 404 error when launching a new container because the application wasn't running in the container. This issue led me to employ a multi-stage Dockerfile, which worked perfectly. Here is the Dockerfile:
 
 ```Dockerfile
 # Build stage
@@ -107,7 +107,7 @@ Now, create an Elastic Load Balancer:
 
 Now, go to the ECS Clusters and Create the service with the desired configuration.
 
-However, you might encounter a `404 error` when you hit with the DNS of Load Balancer like /about or /anything and trying to reload the page. This happens because single-page applications do not have server-side rendering. To resolve this, you can use a location block in the NGINX configuration file. Here's the configuration:
+However, you might encounter a `404 error` when you hit the DNS of Load Balancer like /about or /anything and try to reload the page. This happens because single-page applications do not have server-side rendering. To resolve this, you can use a location block in the NGINX configuration file. Here's the configuration:
 
 ```nginx
 server {
@@ -121,7 +121,7 @@ server {
     }
 }
 ```
-`try_files` tests for the existence of the file in the local file system and may rewrite the URL, if it does exist, it only remembers it - then continues processing the rest of the location block.
+`try_files` tests for the existence of the file in the local file system and may rewrite the URL, if it does exist, it only remembers it - and continues processing the rest of the location block.
 This configuration ensures that routes are handled by Vue.js and prevents 404 errors.
 
 All of these details are already included in the Dockerfile.
