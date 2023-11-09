@@ -104,9 +104,10 @@ Now, create an Elastic Load Balancer:
 
 1. Create a service with your desired configuration.
 2. Select the Load Balancer you created and set up the Target Group.
-3. Create the service.
 
-However, you might encounter a `404 error` when trying to reload a page within your SPA. This happens because single-page applications do not have server-side rendering. To resolve this, you can use a location block in the NGINX configuration file. Here's the configuration:
+Now, go to the ECS Clusters and Create the service with the desired configuration.
+
+However, you might encounter a `404 error` when you hit with the DNS of Load Balancer like /about or /anything and trying to reload the page. This happens because single-page applications do not have server-side rendering. To resolve this, you can use a location block in the NGINX configuration file. Here's the configuration:
 
 ```nginx
 server {
